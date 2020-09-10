@@ -45,12 +45,12 @@ public class HttpRequestHandler implements HttpHandler {
                 response = (String) routeHandler.invoke(new ExampleHandler());
             }
             sendResponse(response, exchange, 200);
-        } catch (IllegalAccessException | InvocationTargetException e) {
+        } catch (IllegalAccessException e) {
             sendResponse("Method couldn't be invoked", exchange, 500);
             e.printStackTrace();
         } catch (ClassCastException e) {
             sendResponse("Invalid method return type", exchange, 500);
-        } catch (RuntimeException e) {
+        } catch (InvocationTargetException e) {
             sendResponse("Exception thrown while executing method", exchange, 500);
         }
     }
