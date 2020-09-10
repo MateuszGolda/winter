@@ -17,8 +17,7 @@ public class HttpRequestHandler implements HttpHandler {
         handlers.keySet().forEach(System.out::println);
     }
 
-    @WebRoute(path = "/" +
-            "")
+    @WebRoute(path = "/")
     private String getResponse() {
         return "Not implemented";
     }
